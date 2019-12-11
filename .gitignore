@@ -1,0 +1,7 @@
+#Bin and Ojbects folder
+*/Debug
+/bin/*
+/obj/*
+
+#Appsettings File
+appsettings.json
