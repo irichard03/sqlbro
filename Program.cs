@@ -10,13 +10,15 @@ namespace sqlbro
         {
             ConfigurationHelper config = new ConfigurationHelper();
             string DatabaseConnection = config.getConfig("Database");
+            string firstName;
+            string lastName;
 
             //connect to databse
             try
             {
                 using (SqlConnection connection = new SqlConnection(DatabaseConnection))
                 {
-                    string query = @"SELECT @@VERSION";                
+                    string query = @"SELECT m.firstname, m.lastName from managers m";                
                     SqlCommand command = new SqlCommand(query, connection);
                     //open connection
                     connection.Open();
@@ -30,7 +32,11 @@ namespace sqlbro
                         while (dataReader.Read())
                         {
                             //display retrieved record (first column only/string value)
-                            Console.WriteLine(dataReader.GetString(0));
+                            firstName = dataReader.GetString(0);
+                            lastName = dataReader.GetString(1);
+
+                            //display retrieved record
+                            Console.WriteLine("{0},{1}", firstName, lastName);
                         }
                     }
                     else
