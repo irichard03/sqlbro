@@ -10,11 +10,16 @@ namespace sqlbro
         static void Main(string[] args)
         {
             DatabaseHelper db = new DatabaseHelper();
-            List<String> myData = db.getData("firstName = 'Ian'");
-            foreach(string name in myData)
+            if (args.Length > 0)
             {
-                Console.WriteLine(name);
+                List<String> myData = db.getData("ianrichard03@gmail.com");
+
+                foreach (string name in myData)
+                {
+                    Console.WriteLine(name);
+                }
             }
+
         }
     }
 }

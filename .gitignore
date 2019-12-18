@@ -2,6 +2,7 @@
 */Debug
 /bin/*
 /obj/*
+/db/*
 
 #Appsettings File
 appsettings.json
